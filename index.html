@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script defer src="script/main.js"></script>
+</head>
+<body>
+    <div class="contenedor">
+        <h1>Piedra, Papel o Tijera</h1>
+        <div class="top">
+            <div class="puntuacion">
+                <div>
+                    <h3><input id="nombre-jugador" class="editable name-input" type="text" value="Jugador" maxlength="11" aria-label="Nombre del jugador" /></h3>
+                    <p>Victorias: <span id="puntuacion-jugador">0</span></p>
+                    <div id="mano-jugador"></div>
+                </div>
+                <div>
+                    <h3>CPU</h3>
+                    <p>Victorias: <span id="puntuacion-cpu">0</span></p>
+                    <p>Cartas restantes: <span id="mano-cpu">0</span></p>
+                </div>
+            </div>
+
+        </div>
+        <div id="elecciones" class="elecciones">
+            <button data-eleccion="piedra">Piedra</button>
+            <button data-eleccion="papel">Papel</button>
+            <button data-eleccion="tijera">Tijera</button>
+        </div>
+        <div class="resultados">
+            <p>Tu elección: <span id="eleccion-jugador"></span></p>
+            <p>Elección CPU: <span id="eleccion-cpu"></span></p>
+            <p id="resultado-ronda"></p>
+        </div>
+        <button id="repartir">Repartir</button>
+
+        
+        <div class="historial card">
+            <div class="historial-header">
+                <h3>Historial de partidas</h3>
+                <button id="borrar-historial" type="button">Borrar historial</button>
+            </div>
+            <div id="historial-partidas" class="historial-list"></div>
+        </div>
+    </div>
+</body>
+</html>
