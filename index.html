@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Piedra, Papel o Tijera</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script defer src="script/storage.js"></script>
+    <script defer src="script/ppt.js"></script>
     <script defer src="script/main.js"></script>
 </head>
 <body>
     <div class="contenedor">
         <h1>Piedra, Papel o Tijera</h1>
-        <div class="top">
+        
             <div class="puntuacion">
                 <div>
-                    <h3><input id="nombre-jugador" class="editable name-input" type="text" value="Jugador" maxlength="11" aria-label="Nombre del jugador" /></h3>
+                    <h3><input id="nombre-jugador" class="editable name-input" type="text" value="Jugador" maxlength="11"></h3>
                     <p>Victorias: <span id="puntuacion-jugador">0</span></p>
                     <div id="mano-jugador"></div>
                 </div>
@@ -24,23 +28,26 @@
                 </div>
             </div>
 
-        </div>
+        
         <div id="elecciones" class="elecciones">
             <button data-eleccion="piedra">Piedra</button>
             <button data-eleccion="papel">Papel</button>
             <button data-eleccion="tijera">Tijera</button>
         </div>
         <div class="resultados">
-            <p>Tu elección: <span id="eleccion-jugador"></span></p>
-            <p>Elección CPU: <span id="eleccion-cpu"></span></p>
+            <p>Tu eleccion: <span id="eleccion-jugador"></span></p>
+            <p>Eleccion CPU: <span id="eleccion-cpu"></span></p>
             <p id="resultado-ronda"></p>
         </div>
         <button id="repartir">Repartir</button>
+        <div id="temporizador" class="temporizador temporizador--hidden">Tiempo: 3</div>
 
         
         <div class="historial card">
             <div class="historial-header">
-                <h3>Historial de partidas</h3>
+                <button id="toggle-historial" class="historial-toggle" type="button" aria-expanded="true">
+                    Historial de partidas
+                </button>
                 <button id="borrar-historial" type="button">Borrar historial</button>
             </div>
             <div id="historial-partidas" class="historial-list"></div>

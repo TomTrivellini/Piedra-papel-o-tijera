@@ -66,6 +66,13 @@ p{
     color: #38A0F5
 }
 
+.elecciones button.no-cards {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+    border: 1px dashed rgba(72, 56, 245, 0.4);
+}
+
 .elecciones button:disabled {
     cursor: not-allowed;
     opacity: 0.5;
@@ -106,6 +113,22 @@ p{
 #repartir:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+}
+
+.temporizador {
+    margin: 0.75rem auto 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #4838F5;
+    background-color: rgba(72, 56, 245, 0.15);
+    border: 1px solid rgba(72, 56, 245, 0.3);
+    border-radius: 8px;
+    padding: 0.35rem 1rem;
+    display: inline-block;
+}
+
+.temporizador--hidden {
+    display: none;
 }
 
 .editable {
@@ -153,13 +176,13 @@ p{
 }
 
 @media (max-width: 480px) {
-  body { font-size: 1rem; }
-  h1 { font-size: 1.8rem; }
-  .name-input { width: 12ch; }
-  .elecciones { gap: 0.4rem; }
-  .elecciones button { flex: 1 1 100%; width: 100%; }
-  #repartir { width: 100%; margin-top: 0.75rem; }
-  .resultados { margin-top: 1rem; }
+    body { font-size: 1rem; }
+    h1 { font-size: 1.8rem; }
+    .name-input { width: 12ch; }
+    .elecciones { gap: 0.4rem; }
+    .elecciones button { flex: 1 1 100%; width: 100%; }
+    #repartir { width: 100%; margin-top: 0.75rem; }
+    .resultados { margin-top: 1rem; }
 }
 
 .historial-header {
@@ -183,10 +206,34 @@ p{
     color: #38A0F5;
 }
 
+.historial-toggle {
+    flex: 1 1 auto;
+    text-align: left;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.historial-toggle::after {
+    content: 'v';
+    font-size: 0.8rem;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.historial-toggle[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
 .historial-list {
     margin-top: 0.5rem;
     padding: 0.25rem 0.5rem;
     border-radius: 6px;
+}
+
+.historial-list.is-collapsed {
+    display: none;
 }
 
 .historial-list .item {
@@ -196,13 +243,4 @@ p{
 
 .historial-list .item:last-child {
     border-bottom: none;
-}
-
-/* Limpieza de estilos antiguos de tabla de historial */
-
-.crown {
-    display: inline-block;
-    margin-right: 0.25rem;
-    /* Placeholder icon; reemplázalo por tu dibujo */
-    filter: drop-shadow(0 0 1px rgba(0,0,0,.2));
 }
